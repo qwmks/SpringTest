@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:insert="~{navigation :: copy}"></div>
+    <h1 th:text="${dish.getDishName()}"></h1>
+    <p th:text="${'This delicious dish can be bought for low price of '+dish.getPrice()}"></p>
+    <h3>This dish consists of following ingredients:</h3>
+    <th:block th:each="ingredient:${dish.getIngredients()}">
+        <div>
+            <a th:href="@{'/ingredients/'+${ingredient.getIngredientId()}}" th:text="${ingredient.getIngredientName()}"></a>
+            <p>===============================</p>
+        </div>
+    </th:block>
+    <p>This dish is usually cooked by <a th:href="@{'/cooks/'+${selectedCook.getCookId()}}"
+          th:text="${selectedCook.getCookName()+' '+selectedCook.getSurname()}"></a></p>
+</body>
+</html>

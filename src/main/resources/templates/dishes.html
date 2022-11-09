@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cook</title>
+</head>
+<body>
+    <div th:insert="~{navigation :: copy}"></div>
+<!--    <div>-->
+<!--        <a href="/">Cooks</a>-->
+<!--        <a href="/dishes">Dishes</a>-->
+<!--        <a href="/ingredients">Ingredients</a>-->
+<!--    </div>-->
+    <th:block th:each="dish:${dishes}">
+        <div>
+            <a th:href="@{'/dishes/'+${dish.getDishId()}}" th:text="${dish.getDishName()}"></a>
+            <p>===============================</p>
+        </div>
+    </th:block>
+</body>
+</html>

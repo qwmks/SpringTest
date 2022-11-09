@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:insert="~{navigation :: copy}"></div>
+    <h1 th:text="${cook.getCookName()+' '+cook.getSurname()}"></h1>
+    <p th:text="${'This cook has experience level of '+cook.getScore()}"></p>
+    <h3>This cook specializes in following dishes:</h3>
+    <th:block th:each="dish:${cook.getDishes()}">
+        <div>
+            <a th:href="@{'/dishes/'+${dish.getDishId()}}" th:text="${dish.getDishName()}"></a>
+            <p>===============================</p>
+        </div>
+    </th:block>
+</body>
+</html>

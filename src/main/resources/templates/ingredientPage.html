@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:insert="~{navigation :: copy}"></div>
+    <h1 th:text="${ingredient.getIngredientName()}"></h1>
+    <p th:text="${'This ingredient is supplied from '+ingredient.getIngredientSource()}"></p>
+    <h3>This ingredient is used in following dishes:</h3>
+    <th:block th:each="dish:${ingredient.getDishes()}">
+        <div>
+            <a th:href="@{'/dishes/'+${dish.getDishId()}}" th:text="${dish.getDishName()}"></a>
+            <p>===============================</p>
+        </div>
+    </th:block>
+</body>
+</html>

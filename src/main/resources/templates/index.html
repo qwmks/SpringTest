@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Greeting</title>
+</head>
+<body>
+<!--    <div>-->
+<!--        <a href="/">Cooks</a>-->
+<!--        <a href="/dishes">Dishes</a>-->
+<!--        <a href="/ingredients">Ingredients</a>-->
+<!--    </div>-->
+    <div th:insert="~{navigation :: copy}"></div>
+    <th:block th:each="cook:${cooks}">
+        <div>
+            <a th:href="@{'/cooks/'+${cook.getCookId()}}" th:text="${cook.getCookName() +' '+cook.getSurname()}"></a>
+            <p>===============================</p>
+        </div>
+    </th:block>
+</body>
+</html>
